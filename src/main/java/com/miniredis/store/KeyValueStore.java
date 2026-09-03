@@ -9,9 +9,7 @@ public class KeyValueStore {
         this.aofLogger = aofLogger;
     }
 
-    // ==========================================
     // Standard Operations
-    // ==========================================
 
     public void set(String key, String value, long ttlSeconds) {
             long expireAt = computeExpiry(ttlSeconds);
@@ -54,10 +52,8 @@ public class KeyValueStore {
                 }
                 return updated != null;
             }
-
-    // ==========================================
     // AOF & Expiry Helpers
-    // ==========================================
+    
 
     /** Used ONLY by AOF recovery — bypasses logging entirely. */
     public void setAbsolute(String key, String value, long expireAtTimestamp) {
